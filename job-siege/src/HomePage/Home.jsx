@@ -17,10 +17,10 @@ function Home() {
       
       <div class="nav-middle">
           <img src={applogo} alt="" class="app-logo"/>
-          <span class="app-name">
-              <span style={{ color: "#975842" }}>J</span>ob{" "}
-              <span style={{ color: "#975842" }}>S</span>iege
-          </span>
+          <p className='app'>
+            <span style={{ color: "#975842" }}>J</span>ob{" "}
+            <span style={{ color: "#975842" }}>S</span>iege
+          </p>
       </div>
       
     

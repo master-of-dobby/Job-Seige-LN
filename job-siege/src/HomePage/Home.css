@@ -14,7 +14,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    padding: 14px;
+    padding: 14px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,12 +35,14 @@ body {
     margin-right: 15px;
 }
 
-.username, .app-name {
+.username, .app {
     color: black;
     font-weight: bold;
 }
 
-.app-name{
+.app{
+    margin: 0;
+    padding: 0;
     font-size: 40px;
 }
 
@@ -63,7 +65,7 @@ body {
     color: #975842;
 }
 
-.mobile{
+/* .mobile{
     display: none;
 }
 
@@ -71,6 +73,6 @@ body {
     .desktop {
         display: none;
     }
-}
+} */
 
 
