@@ -1,0 +1,167 @@
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-left {
+  height: 100vh;
+  flex: 1;
+  background-image: url(./image-2.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0rem 0.8rem 0.8rem 0rem;
+}
+.login-right {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Preahvihear&display=swap");
+
+.app-name-subtitle {
+  font-size: medium;
+  font-weight: 500;
+  margin-bottom: 1.1rem;
+  padding-left: 12rem;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.welcome-message .welcome-back {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+.welcome-message .welcome-back-subtitles {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.login-form {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "poppins", sans-serif;
+}
+
+.login-form label {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.forgot-password {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.login-form input {
+  border: none;
+  width: 55vh;
+  height: 5vh;
+  border-radius: 0.3rem;
+  border: 0.1rem solid #d7d3d3;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #333333;
+  padding-left: 1rem;
+  background-color: #f7f7f7;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.login-form input::placeholder {
+  font-size: 0.9rem;
+  color: #a9a9a9;
+  margin-bottom: 2rem;
+}
+
+.login-form input:focus {
+  border: 0.1rem solid #535151;
+  color: #000000;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.login-form .password-spacing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: -1.2rem;
+  margin-bottom: -0.5rem;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form form button {
+  background-color: #535151;
+  height: 4.5vh;
+  border-radius: 1rem;
+  color: white;
+  font-family: "poppins", sans-serif;
+  border: none;
+  margin: 2rem;
+}
+
+.login-form button:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.or-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.or-line hr {
+  width: 50%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 10px;
+}
+
+.or-line p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.dont-have-account {
+  font-weight: 500;
+  font-family: "poppins", sans-serif;
+}
