@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [emailId, setEmailId] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {};
 
   const handleForgotPassword = () => {};
 
-  const handleSignUp = () => {};
+  const handleSignUp = () => {
+    navigate("/register");
+  };
 
   return (
     <>
@@ -50,6 +54,7 @@ function Login() {
                 name="emailId"
                 onChange={(e) => setEmailId(emailId)}
                 placeholder="Enter your email"
+                required
               ></input>
 
               <div className="password-spacing">
@@ -64,6 +69,7 @@ function Login() {
                 onChange={(e) => setPassword(password)}
                 name="password"
                 placeholder="Enter your password"
+                required
               ></input>
               <button onClick={handleSubmit}>Sign In</button>
             </form>
