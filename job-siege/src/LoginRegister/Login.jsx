@@ -17,14 +17,28 @@ function Login() {
         <div className="login-left"></div>
         <div className="login-right">
           <div className="app-name">
-            <span style={{ color: "#975842" }}>J</span>ob{" "}
-            <span style={{ color: "#975842" }}>S</span>iege
+            <p>
+              <span style={{ color: "#975842" }}>J</span>ob{" "}
+              <span style={{ color: "#975842" }}>S</span>iege
+            </p>
+            <p
+              style={{
+                fontSize: "2vh",
+                fontWeight: "500",
+                fontFamily: "Preahvihear",
+                marginLeft: "18vw",
+              }}
+            >
+              - track your job
+            </p>
           </div>
-          <div className="app-name-subtitle"> - track your job</div>
+          {/* <div className="app-name-subtitle"></div> */}
           <div className="welcome-message">
-            <div className="welcome-back">Welcome back</div>
+            <div className="welcome-back">
+              <p>Welcome back</p>
+            </div>
             <div className="welcome-back-subtitles">
-              Enter your Credentials to access your account
+              <p>Enter your Credentials to access your account</p>
             </div>
           </div>
           <div className="login-form">

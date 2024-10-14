@@ -14,69 +14,127 @@
   background-position: center;
   border-radius: 0rem 0.8rem 0.8rem 0rem;
 }
+
 .login-right {
   flex: 1;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .app-name {
-  font-size: 2.5rem;
+  height: 25vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app-name p {
+  font-size: 7vh;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Preahvihear&display=swap");
 
-.app-name-subtitle {
-  font-size: medium;
-  font-weight: 500;
-  margin-bottom: 1.1rem;
-  padding-left: 12rem;
-  font-family: "Preahvihear", sans-serif;
+/* .app-name-subtitle {
+  height: 3vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
+.app-name-subtitle p {
+  font-size: 1.5vh;
+  font-weight: 500;
+  font-family: "Preahvihear", sans-serif;
+} */
+
 .welcome-message {
+  height: 15vh;
+  width: 50vw;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   justify-content: center;
 }
 
 .welcome-message .welcome-back {
-  font-size: 2rem;
-  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: "Poppins", sans-serif;
+}
+
+.welcome-message .welcome-back p {
+  font-size: 5vh;
+  font-weight: 600;
+  margin: 0;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .welcome-message .welcome-back-subtitles {
-  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+.welcome-message .welcome-back-subtitles p {
+  margin: 0;
+  font-size: 2vh;
 }
 
 .login-form {
   margin-top: 1.8rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: "poppins", sans-serif;
+  margin-bottom: 4vh;
+}
+
+.or-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 2vh;
 }
 
 .login-form label {
-  font-size: 0.8rem;
+  font-size: 2vh;
   font-weight: 500;
+  height: 5vh;
 }
 
 .forgot-password {
-  font-size: 0.8rem;
+  height: 5vh;
   font-weight: 500;
   color: #ff0000;
   cursor: pointer;
+}
+
+.login-form .password-spacing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  font-size: 2vh;
+  font-weight: 500;
+  height: 5vh;
 }
 
 .login-form input {
@@ -92,13 +150,12 @@
   background-color: #f7f7f7;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 1rem;
+  margin-bottom: 2vh;
 }
 
 .login-form input::placeholder {
   font-size: 0.9rem;
   color: #a9a9a9;
-  margin-bottom: 2rem;
 }
 
 .login-form input:focus {
@@ -108,17 +165,6 @@
   outline: none;
 }
 
-.login-form .password-spacing {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: -1.2rem;
-  margin-bottom: -0.5rem;
-}
-
 .login-form form {
   display: flex;
   flex-direction: column;
@@ -126,26 +172,19 @@
 
 .login-form form button {
   background-color: #535151;
-  height: 4.5vh;
-  border-radius: 1rem;
+  height: 5vh;
+  border-radius: 0.5rem;
   color: white;
   font-family: "poppins", sans-serif;
   border: none;
-  margin: 2rem;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .login-form button:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   font-weight: 500;
-}
-
-.or-line {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
 }
 
 .or-line hr {
