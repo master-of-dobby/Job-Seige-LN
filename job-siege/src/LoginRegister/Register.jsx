@@ -2,23 +2,31 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [name, setName] = useState("");
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    emailId: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const navigate = useNavigate();
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const checkPasswordMatch = () => {
-    return password === confirmPassword;
+    return formData.password === formData.confirmPassword;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isPasswordMatched = checkPasswordMatch();
-    if (!isPasswordMatched) {
-      window.alert("Password mismatch, please enter the same password :)");
+
+    if (!checkPasswordMatch()) {
+      setErrorMessage("Passwords do not match");
     } else {
+      setErrorMessage("");
       window.alert("Successfully Registered");
       navigate("/");
     }
@@ -28,90 +36,93 @@ function Register() {
     navigate("/");
   };
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   return (
-    <>
-      <div className="login">
-        <div className="login-left"></div>
-        <div className="login-right">
-          <div className="app-name-register">
-            <p>
-              <span style={{ color: "#975842", height: "3vh" }}>J</span>ob{" "}
-              <span style={{ color: "#975842", height: "3vh" }}>S</span>iege
-            </p>
-            <p
-              style={{
-                fontSize: "2vh",
-                fontWeight: "500",
-                fontFamily: "Preahvihear",
-                marginLeft: "18vw",
-              }}
+    <div className="login">
+      <div className="login-left"></div>
+      <div className="login-right">
+        <div className="app-name-register">
+          <p>
+            <span style={{ color: "#975842", height: "3vh" }}>J</span>ob{" "}
+            <span style={{ color: "#975842", height: "3vh" }}>S</span>iege
+          </p>
+          <p
+            style={{
+              fontSize: "2vh",
+              fontWeight: "500",
+              fontFamily: "Preahvihear",
+              marginLeft: "18vw",
+            }}
+          >
+            - track your job
+          </p>
+        </div>
+        <div className="get-started-now">
+          <p>Get Started Now</p>
+        </div>
+        <div className="login-form">
+          <form onSubmit={handleSubmit}>
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="Enter your name"
+              required
+            />
+            <label>Email address</label>
+            <input
+              type="email"
+              value={formData.emailId}
+              name="emailId"
+              onChange={handleInputChange}
+              placeholder="Enter your email"
+              required
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              placeholder="Enter your password"
+              required
+            />
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+              placeholder="Confirm your password"
+              required
+            />
+            {errorMessage && (
+              <p style={{ color: "red", margin: "0" }}>{errorMessage}</p>
+            )}
+            <button type="submit">Register</button>
+          </form>
+        </div>
+        <div className="or-line">
+          <hr />
+          <p>or</p>
+          <hr />
+        </div>
+        <div className="dont-have-account">
+          <p>
+            Have an account?{" "}
+            <span
+              onClick={handleLogin}
+              style={{ color: "brown", cursor: "pointer" }}
             >
-              - track your job
-            </p>
-          </div>
-          <div className="get-started-now">
-            <p>Get Started Now</p>
-          </div>
-          <div className="login-form">
-            <form onSubmit={handleSubmit}>
-              <label>Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                name="name"
-                placeholder="Enter your name"
-                required
-              />
-              <label>Email address</label>
-              <input
-                type="email"
-                value={emailId}
-                onChange={(e) => setEmailId(e.target.value)}
-                name="emailId"
-                placeholder="Enter your email"
-                required
-              />
-              <label>Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                name="password"
-                placeholder="Enter your password"
-                required
-              />
-              <label>Confirm Password</label>
-              <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                name="confirmPassword"
-                placeholder="Confirm your password"
-                required
-              />
-              <button type="submit">Register</button>
-            </form>
-          </div>
-          <div className="or-line">
-            <hr />
-            <p>or</p>
-            <hr />
-          </div>
-          <div className="dont-have-account">
-            <p>
-              Have an account?{" "}
-              <span
-                onClick={handleLogin}
-                style={{ color: "brown", cursor: "pointer" }}
-              >
-                Login
-              </span>
-            </p>
-          </div>
+              Login
+            </span>
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
