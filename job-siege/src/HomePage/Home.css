@@ -1,68 +1,70 @@
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-.lines{
-    height: 62px;
-    width: 1px;
-    margin: 0px 25px;
+.lines {
+  height: 62px;
+  width: 1px;
+  margin: 0px 25px;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 14px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 14px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.nav-left, .nav-middle, .nav-right {
-    display: flex;
-    align-items: center;
+.nav-left,
+.nav-middle,
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.nav-right{
-    justify-content: space-between;
-
+.nav-right {
+  justify-content: space-between;
 }
 
 .profile-pic {
-    height: 30px;
-    width: 28px;
-    border-radius: 50%;
-    margin-right: 15px;
+  height: 30px;
+  width: 28px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
-.username, .app {
-    color: black;
-    font-weight: bold;
+.username,
+.app {
+  color: black;
+  font-weight: bold;
 }
 
-.app{
-    margin: 0;
-    padding: 0;
-    font-size: 40px;
+.app {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
 }
 
 .app-logo {
-    height: 50px;
-    width: 50px;
-    margin-right: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link {
-    color: #535151;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+  color: #535151;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav-link:hover {
-    text-decoration: underline;
-    color: #975842;
+  text-decoration: underline;
+  color: #975842;
 }
 
 /* .mobile{
@@ -74,5 +76,3 @@ body {
         display: none;
     }
 } */
-
-

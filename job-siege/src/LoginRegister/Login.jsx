@@ -7,7 +7,10 @@ function Login() {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/home");
+  };
 
   const handleForgotPassword = () => {};
 
@@ -52,7 +55,7 @@ function Login() {
                 type="email"
                 value={emailId}
                 name="emailId"
-                onChange={(e) => setEmailId(emailId)}
+                onChange={(e) => setEmailId(e.target.value)}
                 placeholder="Enter your email"
                 required
               ></input>
@@ -66,7 +69,7 @@ function Login() {
               <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(password)}
+                onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 placeholder="Enter your password"
                 required
