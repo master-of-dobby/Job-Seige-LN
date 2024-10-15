@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Home.css";
 import applogo from "../Images/applogo.png";
 import line from "../Images/line.png";
 import profile from "../Images/profile.png";
 
 function Home() {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-left">
@@ -21,20 +28,33 @@ function Home() {
         </p>
       </div>
 
-      <div className="nav-right">
-        <div className="nav-right desktop">
+      <div className="nav-right desktop">
+        <div className="nav-right">
           <img src={line} alt="" className="lines" />
           <a href="/home" className="nav-link">
             Home
           </a>
           <img src={line} alt="" className="lines" />
-          <a href="/about" className="nav-link">
+          <a href="/home" className="nav-link">
             About Us
           </a>
           <img src={line} alt="" className="lines" />
-          <a href="/contact" className="nav-link">
+          <a href="/home" className="nav-link">
             Contact Us
           </a>
+        </div>
+      </div>
+      <div className="mobile">
+        <img src={line} alt="" className="lines sp-line" />
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
+        <div className={`menu ${isOpen ? 'open' : ''}`}>
+          <a href="/home" className="menu-item">Home</a>
+          <a href="/home" className="menu-item">About Us</a>
+          <a href="/home" className="menu-item">Contact Us</a>
         </div>
       </div>
     </nav>
