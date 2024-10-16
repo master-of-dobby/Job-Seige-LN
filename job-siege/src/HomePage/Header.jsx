@@ -1,12 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import applogo from "../Images/applogo.png";
 import line from "../Images/line.png";
 import profile from "../Images/profile.png";
 
-
 function Header() {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -52,10 +50,16 @@ function Header() {
           <div className="bar"></div>
           <div className="bar"></div>
         </div>
-        <div className={`menu ${isOpen ? 'open' : ''}`}>
-          <a href="/home" className="menu-item">Home</a>
-          <a href="/home" className="menu-item">About Us</a>
-          <a href="/home" className="menu-item">Contact Us</a>
+        <div className={`menu ${isOpen ? "open" : ""}`}>
+          <a href="/home" className="menu-item">
+            Home
+          </a>
+          <a href="/home" className="menu-item">
+            About Us
+          </a>
+          <a href="/home" className="menu-item">
+            Contact Us
+          </a>
         </div>
       </div>
     </nav>

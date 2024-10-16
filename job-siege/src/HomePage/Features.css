@@ -1,91 +1,82 @@
-
-.info-block{
-    display: flex;
-    flex-direction: column;
-    gap: 40px
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.info-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.part1{
-  flex : 0.5;
+.part1 {
+  flex: 0.5;
 }
 
-.info-header img{
+.info-header img {
   width: 10px;
   height: 15px;
 }
 
-.info-body p{
+.info-body p {
   color: #535151;
   font-size: 1rem;
   font-weight: 500;
 }
 
-.info-header h2{
+.info-header h2 {
   font-size: 1.6rem;
 }
 
-.info-body p, .info-header h2{
-    margin: 0;
-}
-
-.info-body p{
+.info-body p,
+.info-header h2 {
   margin: 0;
 }
 
-
-
+.info-body p {
+  margin: 0;
+}
 
 .container {
-    padding: 0px 50px;
+  padding: 0px 50px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0px 20px;
     display: grid;
-    gap: 40px;
-    grid-template-columns: 1fr; 
-  }
-  
-  
-  @media (max-width: 1024px) {
-    .container {
-      grid-template-columns: 1fr 1fr; 
-    }
-
+    gap: 20px;
+    grid-template-columns: 1fr;
   }
 
-  @media (max-width: 768px){
-    .container {
-      padding: 0px 20px;
-      display: grid;
-      gap: 20px;
-      grid-template-columns: 1fr; 
-    }
-
-    .info-body p{
-      font-size: 0.9rem;
-    }
-
-    .info-header h2{
-      font-size: 1.5rem;
-    }
+  .info-body p {
+    font-size: 0.9rem;
   }
-  
- 
-  @media (min-width: 1024px) {
-    .container {
-      grid-template-columns: repeat(3, 1fr); 
-    }
-  }
-  
 
-  .box {
-    background-color: #D2D2D2;
-    border-radius: 15px;
-    padding: 30px;
-    border: 1px solid #ddd;
+  .info-header h2 {
+    font-size: 1.5rem;
   }
-  
-  
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.box {
+  background-color: #d2d2d2;
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid #ddd;
+}

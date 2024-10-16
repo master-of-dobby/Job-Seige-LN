@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -117,40 +116,40 @@ body {
 }
 
 @media (max-width: 880px) {
-  .mobile{
+  .mobile {
     display: flex;
     align-items: center;
   }
 
-  .app{
+  .app {
     font-size: 25px;
   }
 
-  .username{
+  .username {
     display: none;
   }
 
-  .menu{
+  .menu {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px; 
-    right: 20px; 
+    top: 60px;
+    right: 20px;
     background-color: #535151;
     border-radius: 5px;
     z-index: 1;
-    padding: 10px; 
+    padding: 10px;
   }
 
-  .menu.open{
+  .menu.open {
     display: flex;
   }
 
-  .desktop{
+  .desktop {
     display: none;
   }
 
-  .lines{
+  .lines {
     margin: 0px 18px;
   }
 
@@ -159,7 +158,7 @@ body {
     width: 40px;
   }
 
-  .profile-pic{
+  .profile-pic {
     margin: 0;
   }
 }
