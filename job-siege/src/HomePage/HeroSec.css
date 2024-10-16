@@ -39,7 +39,7 @@
     }
   }
   
-  /* Media queries for responsiveness */
+  
   @media (max-width: 768px) {
     .hero-container {
       flex-direction: column;
