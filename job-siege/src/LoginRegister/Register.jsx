@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -20,15 +21,37 @@ function Register() {
     return formData.password === formData.confirmPassword;
   };
 
-  const handleSubmit = (e) => {
+  const registerUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/register", {
+        name: formData.name,
+        email: formData.emailId,
+        password: formData.password,
+      });
+      console.log(response);
+    } catch (e) {
+      console.log("Error in registering... " + e.response?.data || e.message);
+      throw e;
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!checkPasswordMatch()) {
       setErrorMessage("Passwords do not match");
-    } else {
-      setErrorMessage("");
+      return;
+    }
+
+    setErrorMessage("");
+
+    try {
+      await registerUser();
       window.alert("Successfully Registered");
       navigate("/");
+    } catch {
+      setErrorMessage("Registration Failed");
+      window.alert("Registration Failed... Try Again :)");
     }
   };
 

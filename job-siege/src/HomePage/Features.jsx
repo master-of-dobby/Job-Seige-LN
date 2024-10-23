@@ -4,10 +4,10 @@ import navImg from "../Images/navigate.png";
 
 function Features() {
   return (
-    <div class="container">
-      <div class="box">
-        <div class="info-block">
-          <div class="info-header">
+    <div className="container">
+      <div className="box">
+        <div className="info-block">
+          <div className="info-header">
             <div className="part1">
               <h2>Add a new Job</h2>
             </div>
@@ -15,7 +15,7 @@ function Features() {
               <img src={navImg} alt="" />
             </div>
           </div>
-          <div class="info-body">
+          <div className="info-body">
             <p>
               Track your job applications easily! Add details like job title,
               company, date of application, status updates, and interview
@@ -25,9 +25,9 @@ function Features() {
           </div>
         </div>
       </div>
-      <div class="box">
-        <div class="info-block">
-          <div class="info-header">
+      <div className="box">
+        <div className="info-block">
+          <div className="info-header">
             <div className="part1">
               <h2>Explore Companies</h2>
             </div>
@@ -35,7 +35,7 @@ function Features() {
               <img src={navImg} alt="" />
             </div>
           </div>
-          <div class="info-body">
+          <div className="info-body">
             <p>
               Explore in-depth insights about various companies. Stay informed
               about the latest industry trends, salary ranges, and career growth
@@ -46,9 +46,9 @@ function Features() {
           </div>
         </div>
       </div>
-      <div class="box">
-        <div class="info-block">
-          <div class="info-header">
+      <div className="box">
+        <div className="info-block">
+          <div className="info-header">
             <div className="part1">
               <h2>Track your Success Rate</h2>
             </div>
@@ -56,7 +56,7 @@ function Features() {
               <img src={navImg} alt="" />
             </div>
           </div>
-          <div class="info-body">
+          <div className="info-body">
             <p>
               Track your success rate by monitoring your job applications,
               interview progress, and offers received. Stay organized and see

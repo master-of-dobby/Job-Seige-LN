@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "../Authentication/AuthContext";
 
 function Login() {
   const [formData, setFormData] = useState({ emailId: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const { login } = useAuth();
+
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -11,19 +17,54 @@ function Login() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const authenticateCreds = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/login", {
+        email: formData.emailId,
+        password: formData.password,
+      });
+      console.log(response);
+      return response.data; // Return the response if needed for further validation
+    } catch (e) {
+      const errorMessage =
+        e.response?.data?.message || "Enter correct email and password";
+      console.log(errorMessage);
+      throw new Error(errorMessage); // Throw an error to handle in the calling function
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Check if fields are empty
+    setErrorMessage(""); // Reset error message on new submit
+
     if (!formData.emailId || !formData.password) {
-      alert("Please fill in all fields");
+      setErrorMessage("Please fill in all fields");
       return;
     }
-    // authentication logic
-    navigate("/home");
+
+    if (!isEmailValid(formData.emailId)) {
+      setErrorMessage("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const token = await authenticateCreds(); // Call authenticateCreds, if successful, navigate
+      localStorage.setItem("token", token);
+      login(token);
+      navigate("/home");
+    } catch (error) {
+      setErrorMessage(error.message); // Set error message from caught error
+    } finally {
+      setIsLoading(false); // Ensure loading state is reset
+    }
+  };
+
+  const isEmailValid = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
   };
 
   const handleForgotPassword = () => {
-    // forgot password logic
     navigate("/forgot-password");
   };
 
@@ -70,12 +111,12 @@ function Login() {
               onChange={handleInputChange}
               placeholder="Enter your email"
               required
-            ></input>
+            />
 
             <div className="password-spacing">
               <label>Password</label>
               <p onClick={handleForgotPassword} className="forgot-password">
-                Forgot password ?
+                Forgot password?
               </p>
             </div>
             <input
@@ -85,14 +126,19 @@ function Login() {
               onChange={handleInputChange}
               placeholder="Enter your password"
               required
-            ></input>
-            <button type="submit">Sign In</button>
+            />
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "Signing In..." : "Sign In"}
+            </button>
+            {errorMessage && (
+              <p style={{ color: "red", marginTop: "10px" }}>{errorMessage}</p>
+            )}
           </form>
         </div>
         <div className="or-line">
-          <hr></hr>
+          <hr />
           <p>or</p>
-          <hr></hr>
+          <hr />
         </div>
         <div className="dont-have-account">
           <p>
