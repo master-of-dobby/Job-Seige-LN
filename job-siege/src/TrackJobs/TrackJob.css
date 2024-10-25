@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
+
+.track-job-section {
+  display: block !important;
+  /* width: 100%; */
+  padding: 1rem;
+  margin-top: 15vh;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 77vh;
+}
+
+/* .track-job-section:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+.your-jobs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6vh;
+  font-family: "Inria Sans", sans-serif;
+  background-color: #fff;
+  /* border: 1px solid #ddd; */
+  border-radius: 5px;
+  margin-top: -0.5rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1),
+    /* Top shadow */ 0 2px 4px rgba(0, 0, 0, 0.1); /* Bottom shadow */
+  margin-bottom: 1rem;
+  /* width: 100%; */
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+.your-jobs p {
+  margin-left: 2rem;
+  align-items: center;
+  font-family: "Caveat", cursive;
+  padding-top: 0.3rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* .job-columns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.job-table th,
+.job-table td {
+  padding: 0.19rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+.job-table th {
+  background-color: #f2f2f2;
+  font-weight: 700;
+}
+
+.job-table td {
+  background-color: #fff;
+}
+
+.job-table button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.job-table button:hover {
+  background-color: #45a049;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination-controls button {
+  background-color: #975842;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  background-color: #854737;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.table-paginatation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 90%;
+}
