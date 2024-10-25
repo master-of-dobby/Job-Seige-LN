@@ -11,6 +11,7 @@ import Home from "./HomePage/Home";
 import { useAuth } from "./Authentication/AuthContext";
 import ProtectedPage from "./Authentication/ProtectedPage";
 import { useEffect, useState } from "react";
+import TrackJob from "./TrackJobs/TrackJob";
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -18,6 +19,7 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     // Wait for the auth state to update
+
     if (isAuthenticated) {
       setLoading(false);
     }
@@ -49,6 +51,15 @@ function App() {
           element={
             <ProtectedRoute>
               <ProtectedPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/track-jobs"
+          element={
+            <ProtectedRoute>
+              <TrackJob />
             </ProtectedRoute>
           }
         />
