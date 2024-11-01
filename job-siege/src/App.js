@@ -12,7 +12,6 @@ import { useAuth } from "./Authentication/AuthContext";
 import ProtectedPage from "./Authentication/ProtectedPage";
 import { useEffect, useState } from "react";
 import TrackJob from "./TrackJobs/TrackJob";
-import AddJobs from "./AddJobs/AddJobs";
 import Jobs from "./AddJobs/Jobs";
 
 
@@ -66,8 +65,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/add-jobs" element={<AddJobs/>}/>
-        <Route path="/jobs" element={<Jobs/>}/>
+        <Route path="/add-jobs" element={<Jobs/>}/>
       </Routes>
     </Router>
   );
