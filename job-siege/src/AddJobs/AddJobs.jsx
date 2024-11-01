@@ -5,8 +5,6 @@ import { useState } from 'react';
 
 function AddJobs() {
 
-    const [errorMessage, setErrorMessage] = useState("");
-
     const [jobData, setJobData] = useState({
         companyName: '',
         jobTitle: '',
@@ -17,17 +15,38 @@ function AddJobs() {
         contactPerson: '',
         notes: ''
     });
+
+    const [errors, setErrors] = useState({
+        companyName: '',
+        jobTitle: '',
+        jobId: '',
+        applicationDate: ''
+    });
+    
     
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if(!value){
-            setErrorMessage("Enter the "+name);
-        }
-        setJobData((prevData) => ({
-            ...prevData,
-            [name]: value,
+            setJobData((prevData) => ({
+                ...prevData,
+                [name]: value,
         }));
+
+        if (value) {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              [name]: '',
+            }));
+        }
     };
+
+    const handleBlur = (cred) => {
+        if(!jobData[cred]){
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                [cred]: `${cred} cannot be empty.`,
+            }));
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,9 +63,10 @@ function AddJobs() {
                 name="companyName"
                 value={jobData.companyName}
                 onChange={handleChange}
+                onBlur={() => handleBlur('companyName')}
                 />
-                {errorMessage && (
-                    <p style={{ color: "red", margin: "0" }}>{errorMessage}</p>
+                {errors.companyName && (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.companyName}</p>
                 )}
             </label>
 
@@ -57,7 +77,11 @@ function AddJobs() {
                 name="jobTitle"
                 value={jobData.jobTitle}
                 onChange={handleChange}
+                onBlur={() => handleBlur('jobTitle')}
                 />
+                {errors.jobTitle && (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.jobTitle}</p>
+                )}
             </label>
 
             <label>
@@ -67,7 +91,11 @@ function AddJobs() {
                 name="jobId"
                 value={jobData.jobId}
                 onChange={handleChange}
+                onBlur={() => handleBlur('jobId')}
                 />
+                {errors.jobId && (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.jobId}</p>
+                )}
             </label>
 
             <label>
@@ -88,6 +116,9 @@ function AddJobs() {
                 value={jobData.applicationDate}
                 onChange={handleChange}
                 />
+                {errors.applicationDate && (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.applicationDate}</p>
+                )}
             </label>
 
             <label>
