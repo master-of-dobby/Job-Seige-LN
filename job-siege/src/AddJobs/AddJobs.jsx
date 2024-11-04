@@ -1,6 +1,7 @@
 import React from 'react'
 import "./AddJobs.css";
 import { useState } from 'react';
+import axios from 'axios';
     
 
 function AddJobs() {
@@ -9,9 +10,10 @@ function AddJobs() {
         companyName: '',
         jobTitle: '',
         jobId: '',
+        salary:'',
         jobLocation: '',
         applicationDate: '',
-        applicationState: '',
+        applicationStatus: '',
         contactPerson: '',
         notes: ''
     });
@@ -48,9 +50,27 @@ function AddJobs() {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Submitted Job Data: ", jobData);
+        try{
+            const response = await axios.post('http://localhost:8080/add-jobs', jobData);
+            console.log(response.data);
+            alert("Added Successfully");
+            setJobData({
+                companyName: '',
+                jobTitle: '',
+                jobId: '',
+                salary:'',
+                jobLocation: '',
+                applicationDate: '',
+                applicationStatus: '',
+                contactPerson: '',
+                notes: ''
+            });
+        }catch(error){
+            alert("Failed to add job");
+            console.log(error);
+        }
     };
 
   return (
@@ -104,6 +124,16 @@ function AddJobs() {
                 type="text"
                 name="jobLocation"
                 value={jobData.jobLocation}
+                onChange={handleChange}
+                />
+            </label>
+
+            <label>
+                Salary:
+                <input
+                type="number"
+                name="salary"
+                value={jobData.salary}
                 onChange={handleChange}
                 />
             </label>
