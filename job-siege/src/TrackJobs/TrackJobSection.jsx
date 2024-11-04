@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TrackJob.css";
 
 function TrackJobSection() {
-  const [jobData, setJobData] = useState([
+  const [jobData] = useState([
     {
       jobId: "101",
       company: "Tech Solutions",
