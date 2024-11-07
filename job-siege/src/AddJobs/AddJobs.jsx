@@ -7,25 +7,35 @@ import axios from 'axios';
 function AddJobs() {
 
     const [jobData, setJobData] = useState({
-        companyName: '',
-        jobTitle: '',
-        jobId: '',
-        salary:'',
-        jobLocation: '',
-        applicationDate: '',
-        applicationStatus: '',
-        contactPerson: '',
-        notes: ''
+        companyName: "",
+        referenceId: "",
+        jobDescription: "",
+        jobTitle: "",
+        salary: "",
+        jobLocation: "",
+        applicationDate: "",
+        applicationStatus: "",
+        contactPerson: "",
+        shortlisted: "" ,
+        applicationLink: "",
+        followingDate: "",
+        notes: ""
     });
 
     const [errors, setErrors] = useState({
         companyName: '',
         jobTitle: '',
-        jobId: '',
+        referenceId: '',
         applicationDate: ''
     });
+
+    const isFormValid = () => {
+        return Object.values(jobData).every(field => field.trim() !== "");
+    };
     
     
+    
+    const token = localStorage.getItem('token');
     const handleChange = (e) => {
         const { name, value } = e.target;
             setJobData((prevData) => ({
@@ -50,22 +60,36 @@ function AddJobs() {
         }
     }
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!isFormValid()){
+            alert("Enter all credentials before submitting");
+            return;
+        }
         try{
-            const response = await axios.post('http://localhost:8080/add-jobs', jobData);
+            const response = await axios.post('http://localhost:8080/add-jobs', jobData,
+                {headers: {
+                    'Authorization': `Bearer ${token}`, 
+                },}
+            );
             console.log(response.data);
             alert("Added Successfully");
             setJobData({
-                companyName: '',
-                jobTitle: '',
-                jobId: '',
-                salary:'',
-                jobLocation: '',
-                applicationDate: '',
-                applicationStatus: '',
-                contactPerson: '',
-                notes: ''
+                companyName: "",
+                referenceId: "",
+                jobDescription: "",
+                jobTitle: "",
+                salary: "",
+                jobLocation: "",
+                applicationDate: "",
+                applicationStatus: "",
+                contactPerson: "",
+                shortlisted: "" ,
+                applicationLink: "",
+                followingDate: "",
+                notes: ""
             });
         }catch(error){
             alert("Failed to add job");
@@ -77,16 +101,16 @@ function AddJobs() {
     <form onSubmit={handleSubmit} className="job-form">
 
             <label>
-                Company Name:
+                Job ID/Reference Number
                 <input
                 type="text"
-                name="companyName"
-                value={jobData.companyName}
+                name="referenceId"
+                value={jobData.referenceId}
                 onChange={handleChange}
-                onBlur={() => handleBlur('companyName')}
+                onBlur={() => handleBlur('referenceId')}
                 />
-                {errors.companyName && (
-                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.companyName}</p>
+                {errors.referenceId && (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.referenceId}</p>
                 )}
             </label>
 
@@ -105,18 +129,39 @@ function AddJobs() {
             </label>
 
             <label>
-                Job ID/Reference Number
+                Job Description:
                 <input
                 type="text"
-                name="jobId"
-                value={jobData.jobId}
+                name="jobDescription"
+                value={jobData.jobDescription}
                 onChange={handleChange}
-                onBlur={() => handleBlur('jobId')}
                 />
-                {errors.jobId && (
-                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.jobId}</p>
+            </label>
+
+            <label>
+                Company Name:
+                <input
+                type="text"
+                name="companyName"
+                value={jobData.companyName}
+                onChange={handleChange}
+                onBlur={() => handleBlur('companyName')}
+                />
+                {errors.companyName && (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.companyName}</p>
                 )}
             </label>
+
+            <label>
+                Salary :
+                <input
+                type="text"
+                name="salary"
+                value={jobData.salary}
+                onChange={handleChange}
+                />
+            </label>
+            
 
             <label>
                 Job Location:
@@ -129,11 +174,11 @@ function AddJobs() {
             </label>
 
             <label>
-                Salary:
+                Shortlisted : 
                 <input
-                type="number"
-                name="salary"
-                value={jobData.salary}
+                type="text"
+                name="shortlisted"
+                value={jobData.shortlisted}
                 onChange={handleChange}
                 />
             </label>
@@ -141,10 +186,11 @@ function AddJobs() {
             <label>
                 Application Date:
                 <input
-                type="date"
+                type="datetime-local"
                 name="applicationDate"
                 value={jobData.applicationDate}
                 onChange={handleChange}
+                onBlur={() => handleBlur('applicationDate')}
                 />
                 {errors.applicationDate && (
                     <p style={{ color: "red", margin: "0", fontSize: "12px", fontWeight: "400"}}>{errors.applicationDate}</p>
@@ -160,6 +206,27 @@ function AddJobs() {
                     <option value="Offered">Offered</option>
                     <option value="Rejected">Rejected</option>
                 </select>
+            </label>
+
+
+            <label>
+                Application Link:
+                <input
+                type="text"
+                name="applicationLink"
+                value={jobData.applicationLink}
+                onChange={handleChange}
+                />
+            </label>
+
+            <label>
+                Following Date:
+                <input
+                type="datetime-local"
+                name="followingDate"
+                value={jobData.followingDate}
+                onChange={handleChange}
+                />
             </label>
 
             <label>
